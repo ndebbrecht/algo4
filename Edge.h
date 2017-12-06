@@ -14,14 +14,25 @@
 #ifndef EDGE_H
 #define EDGE_H
 
+#include "Node.h"
+
 namespace std;
 
 class Edge {
 public:
-    Edge();
+    Edge(float weight, Node* first, Node* second);
     Edge(const Edge& orig);
     virtual ~Edge();
+    void setWeight(float weight);
+    void setFirst(Node* first);
+    void setSecond(Node* second);
+    float getWeight();
+    Node* getFirst();
+    Node* getSecond();
 private:
+    Node* first;
+    Node* second;
+    float weight;
 
 };
 
