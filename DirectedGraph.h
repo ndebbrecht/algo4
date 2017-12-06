@@ -14,7 +14,10 @@
 #ifndef DIRECTEDGRAPH_H
 #define DIRECTEDGRAPH_H
 
-namespace std;
+#include "Node.h"
+#include "Edge.h"
+
+using namespace std;
 
 class DirectedGraph {
 public:

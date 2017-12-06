@@ -16,7 +16,7 @@
 
 #include "Node.h"
 
-namespace std;
+using namespace std;
 
 class Edge {
 public:
