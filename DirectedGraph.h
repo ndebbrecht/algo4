@@ -16,6 +16,10 @@
 
 #include "Node.h"
 #include "Edge.h"
+#include <map>
+#include <vector>
+#include <iostream>
+#include <fstream>
 
 using namespace std;
 
@@ -24,7 +28,15 @@ public:
     DirectedGraph();
     DirectedGraph(const DirectedGraph& orig);
     virtual ~DirectedGraph();
+    void insertEdge(string start, string target, float weight);
+    void insertEdge(Edge* e);
+    void insertNode(Node* newNode);
+    void insertData();
+    Node* findNode(string name);
+    vector<Node*> findShortestWay(Node* start, Node* target);
 private:
+    int size;
+    map< Node*, vector<Edge*> > adjaz;
 
 };
 

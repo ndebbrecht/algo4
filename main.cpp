@@ -12,6 +12,7 @@
  */
 
 #include <cstdlib>
+#include "DirectedGraph.h"
 
 using namespace std;
 
