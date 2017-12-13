@@ -14,17 +14,22 @@
 #ifndef NODE_H
 #define NODE_H
 
+#include <string>
+
 using namespace std;
 
 class Node {
 public:
-    Node(std::string markierung);
+    Node(string markierung, int index);
     Node(const Node& orig);
     virtual ~Node();
-    std::string getMarkierung();
-    void getMarkierung(std::string markierung;
+    string getMarkierung();
+    void setMarkierung(string markierung);
+    void setIndex(int index);
+    int getIndex();
 private:
-    std::string markierung;
+    string markierung;
+    int index;
 
 };
 

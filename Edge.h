@@ -20,7 +20,7 @@ using namespace std;
 
 class Edge {
 public:
-    Edge(float weight, Node* first, Node* second);
+    Edge(Node* first, Node* second, float weight);
     Edge(const Edge& orig);
     virtual ~Edge();
     void setWeight(float weight);

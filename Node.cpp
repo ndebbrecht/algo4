@@ -14,10 +14,13 @@
 #include "Node.h"
 #include <string>
 
-std::string markierung;
+using namespace std;
 
-Node::Node(std::string markierung) {
+string markierung;
+
+Node::Node(string markierung, int index) {
     this->markierung = markierung;
+    this->index = index;
 }
 
 Node::Node(const Node& orig) {
@@ -26,10 +29,18 @@ Node::Node(const Node& orig) {
 Node::~Node() {
 }
 
-std::string Node::getMarkierung(){
+string Node::getMarkierung(){
     return this->markierung;
 }
 
-void Node::setMarkierung(std::string markierung){
+void Node::setMarkierung(string markierung){
     this->markierung = markierung;
+}
+
+int Node::getIndex(){
+    return index;
+}
+
+void Node::setIndex(int index){
+    this->index = index;
 }

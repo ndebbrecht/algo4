@@ -20,6 +20,7 @@
 #include <vector>
 #include <iostream>
 #include <fstream>
+#include <stdio.h>
 
 using namespace std;
 
@@ -31,9 +32,10 @@ public:
     void insertEdge(string start, string target, float weight);
     void insertEdge(Edge* e);
     void insertNode(Node* newNode);
-    void insertData();
+    void insertData(string filename);
     Node* findNode(string name);
     vector<Node*> findShortestWay(Node* start, Node* target);
+    void printData();
 private:
     int size;
     map< Node*, vector<Edge*> > adjaz;

@@ -13,6 +13,7 @@
 
 #include <cstdlib>
 #include "DirectedGraph.h"
+#include <stdio.h>
 
 using namespace std;
 
@@ -20,7 +21,9 @@ using namespace std;
  * 
  */
 int main(int argc, char** argv) {
-
+    DirectedGraph graph = new DirectedGraph();
+    graph.insertData("OS_Map.txt");
+    graph.printData();
     return 0;
 }
 

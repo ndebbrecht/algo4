@@ -19,7 +19,7 @@ Node* first;
 Node* second;
 
 
-Edge::Edge(float weight, Node* first, Node* second) {
+Edge::Edge(Node* first, Node* second, float weight) {
     this->first = first;
     this->second = second;
     this->weight = weight;

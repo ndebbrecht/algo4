@@ -16,8 +16,6 @@
 DirectedGraph::DirectedGraph() {
     adjaz = map< Node*, vector<Edge*> >();
     size = 0;
-    
-    insertData();
 }
 
 DirectedGraph::DirectedGraph(const DirectedGraph& orig) {
@@ -28,7 +26,7 @@ DirectedGraph::~DirectedGraph() {
 
 void DirectedGraph::insertEdge(string start, string target, float weight){
     if(findNode(start) == NULL){
-        Node* n = new Node(start, ++start);
+        Node* n = new Node(start, ++size);
         insertNode(n);
     }
     if(findNode(target) == NULL){
@@ -42,7 +40,7 @@ void DirectedGraph::insertEdge(Edge* e){
     map<Node*, vector<Edge*> >::iterator it;
     
     it = adjaz.find(e->getSecond());
-    it->second.push_back(e):
+    it->second.push_back(e);
 }
 
 Node* DirectedGraph::findNode(string name){
@@ -63,13 +61,37 @@ void DirectedGraph::insertNode(Node* newNode){
     adjaz.insert(neu);
 }
 
-void DirectedGraph::insertData(){
-    fstream dataFile("OS_Map.txt");
+void DirectedGraph::insertData(string filename){
+    fstream dataFile(filename);
     string line;
+    vector<string> data;
+    char* part;
     if(dataFile.is_open()){
         while(getline(dataFile, line)){
-            
+            part = strtok(line, " ");
+            while(part != NULL){
+                data.push_back(part);
+                part = strtok(NULL, " ");
+            }
+            string::size_type sz;
+            insertEdge(data[0], data[1], stof(data[2], &sz));
         }
     }
     
+}
+
+vector<Node*> DirectedGraph::findShortestWay(Node* start, Node* target){
+    vector<Node*> path = new vector<Node*>();
+}
+
+void DirectedGraph::printData(){
+    map<Node*, vector<Edge*> >::iterator it;
+    for(it = adjaz.begin(); it != adjaz.end(); it++){
+        cout << it->first->getMarkierung() << " ";
+        int i = 0;
+        for(i=0; i < it->second.length(); i++){
+            cout << it->second[i]->getWeight() << " ";
+        }
+        cout << endl;
+    }
 }
