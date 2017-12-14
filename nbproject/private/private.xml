@@ -6,6 +6,14 @@
     </data>
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/Users/admin/NetBeansProjects/Algo_4/Edge.cpp</file>
+            <file>file:/Users/admin/NetBeansProjects/Algo_4/Node.cpp</file>
+            <file>file:/Users/admin/NetBeansProjects/Algo_4/main.cpp</file>
+            <file>file:/Users/admin/NetBeansProjects/Algo_4/DirectedGraph.h</file>
+            <file>file:/Users/admin/NetBeansProjects/Algo_4/Node.h</file>
+            <file>file:/Users/admin/NetBeansProjects/Algo_4/Edge.h</file>
+            <file>file:/Users/admin/NetBeansProjects/Algo_4/DirectedGraph.cpp</file>
+        </group>
     </open-files>
 </project-private>

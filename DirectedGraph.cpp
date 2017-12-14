@@ -62,26 +62,25 @@ void DirectedGraph::insertNode(Node* newNode){
 }
 
 void DirectedGraph::insertData(string filename){
-    fstream dataFile(filename);
-    string line;
-    vector<string> data;
-    char* part;
-    if(dataFile.is_open()){
-        while(getline(dataFile, line)){
-            part = strtok(line, " ");
-            while(part != NULL){
-                data.push_back(part);
-                part = strtok(NULL, " ");
-            }
-            string::size_type sz;
-            insertEdge(data[0], data[1], stof(data[2], &sz));
-        }
+    FILE *dataFile = NULL;
+    dataFile = fopen(filename.c_str(), "r");
+    if(dataFile == NULL){
+        perror("Error! ");
+        return;
     }
+    char from[50];
+    char to[50];
+    float value =0.0;
+    while(fscanf(dataFile, "%s %s %f\n", from, to, &value)==3) {
+        this->insertEdge(string(from),string(to),value);
+    }
+    fclose(dataFile);
     
 }
 
 vector<Node*> DirectedGraph::findShortestWay(Node* start, Node* target){
-    vector<Node*> path = new vector<Node*>();
+    vector<Node*> path;
+    return path;
 }
 
 void DirectedGraph::printData(){
@@ -89,7 +88,7 @@ void DirectedGraph::printData(){
     for(it = adjaz.begin(); it != adjaz.end(); it++){
         cout << it->first->getMarkierung() << " ";
         int i = 0;
-        for(i=0; i < it->second.length(); i++){
+        for(i=0; i < it->second.size(); i++){
             cout << it->second[i]->getWeight() << " ";
         }
         cout << endl;
