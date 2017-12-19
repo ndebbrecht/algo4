@@ -21,6 +21,8 @@ string markierung;
 Node::Node(string markierung, int index) {
     this->markierung = markierung;
     this->index = index;
+    this->marked = false;
+    this->prev = NULL;
 }
 
 Node::Node(const Node& orig) {
@@ -43,4 +45,20 @@ int Node::getIndex(){
 
 void Node::setIndex(int index){
     this->index = index;
+}
+
+bool Node::getMarked(){
+    return this->marked;
+}
+
+Node* Node::getPrev(){
+    return this->prev;
+}
+
+void Node::setMarked(bool marked){
+    this->marked = marked;
+}
+
+void Node::setPrev(Node* prev){
+    this->prev = prev;
 }

@@ -21,6 +21,7 @@
 #include <iostream>
 #include <fstream>
 #include <cstdio>
+#include <queue>
 
 using namespace std;
 
@@ -34,8 +35,9 @@ public:
     void insertNode(Node* newNode);
     void insertData(string filename);
     Node* findNode(string name);
-    vector<Node*> findShortestWay(Node* start, Node* target);
-    void printData();
+    int findShortestWay(string st, string go, int c);
+    int dijkstra(string st, string go, int c);
+    void printNodes();
 private:
     int size;
     map< Node*, vector<Edge*> > adjaz;

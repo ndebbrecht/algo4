@@ -27,9 +27,15 @@ public:
     void setMarkierung(string markierung);
     void setIndex(int index);
     int getIndex();
+    bool getMarked();
+    void setMarked(bool marked);
+    Node* getPrev();
+    void setPrev(Node* prev);
 private:
     string markierung;
     int index;
+    bool marked;
+    Node* prev;
 
 };
 

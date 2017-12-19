@@ -39,7 +39,7 @@ void DirectedGraph::insertEdge(string start, string target, float weight){
 void DirectedGraph::insertEdge(Edge* e){
     map<Node*, vector<Edge*> >::iterator it;
     
-    it = adjaz.find(e->getSecond());
+    it = adjaz.find(e->getFirst());
     it->second.push_back(e);
 }
 
@@ -75,22 +75,53 @@ void DirectedGraph::insertData(string filename){
         this->insertEdge(string(from),string(to),value);
     }
     fclose(dataFile);
+    cout << "\n\nDaten erfolgreich eingelesen!\n\n";
     
 }
 
-vector<Node*> DirectedGraph::findShortestWay(Node* start, Node* target){
-    vector<Node*> path;
-    return path;
+int DirectedGraph::findShortestWay(string st, string go, int c){
+    Node* s = this->findNode(st);
+    Node* t = this->findNode(go);
+    if(t == NULL || s == NULL){
+        return -2;
+    }
+    Node* v = NULL;
+    int tmp = 0;
+    s->setPrev(NULL);
+    s->setMarked(true);
+    queue<Node*> pq;
+    pq.push(s);
+    while(!pq.empty()){
+        v = pq.front();
+        pq.pop();
+        if(v == t){
+            while(v != s){
+                v = v->getPrev();
+                tmp++;
+            }
+            if(tmp<=c){
+                return tmp;
+            } else {
+                return -1;
+            }
+        }
+        int i = 0;
+        for(i = 0; i<adjaz.find(v)->second.size(); i++){
+            if(!adjaz.find(v)->second[i]->getSecond()->getMarked()){
+                adjaz.find(v)->second[i]->getSecond()->setMarked(true);
+                adjaz.find(v)->second[i]->getSecond()->setPrev(v);
+                pq.push(adjaz.find(v)->second[i]->getSecond());
+            }
+        }
+    }
+    return -3;
 }
 
-void DirectedGraph::printData(){
+void DirectedGraph::printNodes(){
+    cout << endl << endl;
     map<Node*, vector<Edge*> >::iterator it;
     for(it = adjaz.begin(); it != adjaz.end(); it++){
-        cout << it->first->getMarkierung() << " ";
-        int i = 0;
-        for(i=0; i < it->second.size(); i++){
-            cout << it->second[i]->getWeight() << " ";
-        }
-        cout << endl;
+        cout << it->first->getMarkierung() << endl;
     }
+    cout << "\n\n";
 }
