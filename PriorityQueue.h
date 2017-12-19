@@ -1,44 +1,37 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+//
+// Created by Milena on 08.06.2016.
+//
 
-/* 
- * File:   PriorityQueue.h
- * Author: sandragall
- *
- * Created on November 21, 2017, 6:16 PM
- */
+#ifndef PRAKTIKUM4_PRIORITYQUEUE_H
+#define PRAKTIKUM4_PRIORITYQUEUE_H
 
-#ifndef PRIORITATENWARTESCHLANGE_H
-#define PRIORITATENWARTESCHLANGE_H
 
-#include "PQelement.h"
-
-class PriorityQueue{
+#include "PQElement.h"
+#include "Node.h"
+class PriorityQueue {
 private:
-    int n; /* aktuelle Laenge */
-    int length; /* Gesamtlaenge=Aufnahmekapazitaet */
-    PQelement *a; /* fuer das Feld */
-    int *referenzfeld;
-    
+    int heapSize; //aktuelle größe
+    int length;	//Max größe
+    Node *a; //Ein array
 public:
-    PriorityQueue(){};
+    int *referencefield;
     PriorityQueue(int l);
-
-    PQelement& minimum(void) const;
-    PQelement extractMin(void);
-    void insert(const PQelement& anew);
+    ~PriorityQueue(){delete(a); delete(referencefield);};
+    void downHeapMin(int i,int n,Node a[]);
+    Node& minimum(void) const;
+    Node* extractMin(void);
+    void insert(const Node& anew);
     int size();
-    void downMinHeap(int i,int n,PQelement[]);
-    void vertauscheElemente(int pos1, int pos2);
-    
-    void increase(int id, int d);
-    void del(int id);
-    
-    void increaseRef(int id, int d);
-    void delRef(int id);
+    void swapElements(int pos1, int pos2);
+    void increase(std::string mark, int d);
+    void del(std::string mark);
+    void increaseWithRef(int id, int d);
+    void delWithRef(int id);
+    void update(std::string mark, Node* other);
+   // void updateWRef(int id, Node* other);
+    void printQueue();
 };
 
-#endif /* PRIORITATENWARTESCHLANGE_H */
+
+
+#endif //PRAKTIKUM4_PRIORITYQUEUE_H

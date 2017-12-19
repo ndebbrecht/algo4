@@ -30,9 +30,9 @@ int main(int argc, char** argv) {
     
     bool weiter = true;
     while(weiter){
-        cout << "[s]tarte Navigation\n[z]eige Städte\n[b]eenden\n>";
+        cout << "[s]tarte Navigation\nstarte Navigation mit dem [d]ijkstra-Algorithmus\n[z]eige Städte\n[b]eenden\n>";
         char choice;
-        scanf("%s",&choice);
+        scanf("%c",&choice);
         if(choice == 'b'){
             cout << "\nAuf Wiedersehen!" << endl;
             weiter = false;
@@ -42,17 +42,30 @@ int main(int argc, char** argv) {
         } else {
             cout << "Bitte Startort eingeben!\n>";
             char start[50];
-            scanf("%s",&start);
+            scanf("%50s", &start[0]);
+            string a = string(start);
             cout << "Bitte Zielort eingeben!\n>";
             char ziel[50];
-            scanf("%s",&ziel);
+            scanf("%50s", &ziel[0]);
+            string b = string(ziel);
             cout << "Über wie viele Knoten soll die Strecke maximal gehen?\n>";
-            char max;
-            scanf("%i",&max);
-            int n = max - 0;
-            int result = graph.findShortestWay(string(start), string(ziel), n);
-            if(result > 0){
+            int n = 5;
+            scanf("%d", &n);
+            cout << n;
+            int result = 0;
+            cout << "1";
+            if(choice == 's'){
+                result = graph.findShortestWay(a, b, n);
+            } else {
+                cout << start;
+                result = graph.dijkstra(a, b, n);    
+            }
+            if(result >= 0){
                 cout << "Die Strecke verläuft über " << result << " Knoten\n\n";
+                if(choice == 'd'){
+                    Node* target = graph.findNode(b);
+                    cout << "Die Strecke von " << a << " nach " << b << " beträgt " << target->getDist() << "km\n";
+                }
             } else {
                 switch(result){
                     case -1:

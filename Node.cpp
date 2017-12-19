@@ -23,6 +23,10 @@ Node::Node(string markierung, int index) {
     this->index = index;
     this->marked = false;
     this->prev = NULL;
+    this->dist = 0;
+}
+
+Node::Node(){
 }
 
 Node::Node(const Node& orig) {
@@ -61,4 +65,18 @@ void Node::setMarked(bool marked){
 
 void Node::setPrev(Node* prev){
     this->prev = prev;
+}
+
+float Node::getDist(){
+    return this->dist;
+}
+
+void Node::setDist(float dist){
+    this->dist = dist;
+}
+
+void Node::swap(Node *a) {
+    Node temp = *this;
+    *this=*a;
+    *a=temp;
 }

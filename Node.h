@@ -21,6 +21,7 @@ using namespace std;
 class Node {
 public:
     Node(string markierung, int index);
+    Node();
     Node(const Node& orig);
     virtual ~Node();
     string getMarkierung();
@@ -31,11 +32,15 @@ public:
     void setMarked(bool marked);
     Node* getPrev();
     void setPrev(Node* prev);
+    float getDist();
+    void setDist(float dist);
+    void swap(Node* a);
 private:
     string markierung;
     int index;
     bool marked;
     Node* prev;
+    float dist;
 
 };
 

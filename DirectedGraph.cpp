@@ -59,6 +59,7 @@ void DirectedGraph::insertNode(Node* newNode){
     neu.first = newNode;
     neu.second = ve;
     adjaz.insert(neu);
+    size++;
 }
 
 void DirectedGraph::insertData(string filename){
@@ -124,4 +125,62 @@ void DirectedGraph::printNodes(){
         cout << it->first->getMarkierung() << endl;
     }
     cout << "\n\n";
+}
+
+void DirectedGraph::single_shortest_path(Node* s){
+    PriorityQueue pq(this->size);
+    map<Node*, vector<Edge*> >::iterator it;
+    for(it = adjaz.begin(); it != adjaz.end(); it++){
+        it->first->setMarked(false);
+        it->first->setPrev(NULL);
+        if(it->first->getMarkierung() == s->getMarkierung()){
+            it->first->setDist(0);
+        } else {
+            it->first->setDist(numeric_limits<float>::max());
+        }
+        pq.insert(*(it->first));
+    }
+    Node* v = NULL;
+    while(pq.size()!=0){
+        v=pq.extractMin();
+        v->setMarked(true);
+        for(int i = 0; i<adjaz.find(v)->second.size();i++){
+            Edge* vi = adjaz.find(v)->second[i];
+            if((!vi->getSecond()->getMarked()) && (vi->getSecond()->getDist() > v->getDist() + vi->getWeight())){
+                vi->getSecond()->setDist(v->getDist() + vi->getWeight());
+                vi->getSecond()->setPrev(v);
+                pq.update(vi->getSecond()->getMarkierung(), vi->getSecond());
+
+            }
+        }
+    }
+    //alle markierungen zurueck auf false
+    for(it = adjaz.begin(); it != adjaz.end(); it++){
+        it->first->setMarked(false);
+    }   
+}
+
+int DirectedGraph::dijkstra(string st, string go, int c){
+    cout << st << go;
+    Node* start = this->findNode(st);
+    Node* target = this->findNode(go);
+    if(start == NULL || target == NULL){
+        return -2;
+    } else {
+        cout << "1";
+        this->single_shortest_path(start);
+        cout << "2";
+        Node* tmp = target;
+        int count = 0;
+        while(tmp != start){
+            cout << "ping";
+            count++;
+            tmp = tmp->getPrev();
+        }
+        if(count <=c){
+            return count;
+        } else {
+            return -1;
+        }
+    }
 }

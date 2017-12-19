@@ -22,6 +22,7 @@
 #include <fstream>
 #include <cstdio>
 #include <queue>
+#include "PriorityQueue.h"
 
 using namespace std;
 
@@ -37,6 +38,7 @@ public:
     Node* findNode(string name);
     int findShortestWay(string st, string go, int c);
     int dijkstra(string st, string go, int c);
+    void single_shortest_path(Node* s);
     void printNodes();
 private:
     int size;

@@ -38,6 +38,8 @@ OBJECTFILES= \
 	${OBJECTDIR}/DirectedGraph.o \
 	${OBJECTDIR}/Edge.o \
 	${OBJECTDIR}/Node.o \
+	${OBJECTDIR}/PQElement.o \
+	${OBJECTDIR}/PriorityQueue.o \
 	${OBJECTDIR}/main.o
 
 
@@ -79,6 +81,16 @@ ${OBJECTDIR}/Node.o: Node.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Node.o Node.cpp
+
+${OBJECTDIR}/PQElement.o: PQElement.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/PQElement.o PQElement.cpp
+
+${OBJECTDIR}/PriorityQueue.o: PriorityQueue.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/PriorityQueue.o PriorityQueue.cpp
 
 ${OBJECTDIR}/main.o: main.cpp
 	${MKDIR} -p ${OBJECTDIR}

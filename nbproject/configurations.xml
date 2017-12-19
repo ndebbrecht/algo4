@@ -7,6 +7,8 @@
       <itemPath>DirectedGraph.h</itemPath>
       <itemPath>Edge.h</itemPath>
       <itemPath>Node.h</itemPath>
+      <itemPath>PQElement.h</itemPath>
+      <itemPath>PriorityQueue.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -18,6 +20,8 @@
       <itemPath>DirectedGraph.cpp</itemPath>
       <itemPath>Edge.cpp</itemPath>
       <itemPath>Node.cpp</itemPath>
+      <itemPath>PQElement.cpp</itemPath>
+      <itemPath>PriorityQueue.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
@@ -32,6 +36,9 @@
       <itemPath>Makefile</itemPath>
     </logicalFolder>
   </logicalFolder>
+  <sourceRootList>
+    <Elem>.</Elem>
+  </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
     <conf name="Debug" type="1">
@@ -54,12 +61,20 @@
       </item>
       <item path="Node.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="PQElement.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="PQElement.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="PriorityQueue.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="PriorityQueue.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>
     <conf name="Release" type="1">
       <toolsSet>
-        <compilerSet>default</compilerSet>
+        <compilerSet>GNU|GNU</compilerSet>
         <dependencyChecking>true</dependencyChecking>
         <rebuildPropChanged>false</rebuildPropChanged>
       </toolsSet>
@@ -88,6 +103,14 @@
       <item path="Node.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Node.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="PQElement.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="PQElement.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="PriorityQueue.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="PriorityQueue.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
