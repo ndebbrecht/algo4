@@ -21,8 +21,8 @@ using namespace std;
  */
 int main(int argc, char** argv) {
     DirectedGraph graph;
-    if(argc==2 || true){
-        graph.insertData("OS_Map.txt"/*string(argv[1])*/);
+    if(argc==2){
+        graph.insertData(string(argv[1]));
     } else {
         printf("Np file was initialized!\n");
         return 1;
