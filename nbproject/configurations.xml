@@ -6,9 +6,9 @@
                    projectFiles="true">
       <itemPath>DirectedGraph.h</itemPath>
       <itemPath>Edge.h</itemPath>
+      <itemPath>Element.h</itemPath>
       <itemPath>Node.h</itemPath>
-      <itemPath>PQElement.h</itemPath>
-      <itemPath>PriorityQueue.h</itemPath>
+      <itemPath>PQ_Dijkstra.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -19,9 +19,9 @@
                    projectFiles="true">
       <itemPath>DirectedGraph.cpp</itemPath>
       <itemPath>Edge.cpp</itemPath>
+      <itemPath>Element.cpp</itemPath>
       <itemPath>Node.cpp</itemPath>
-      <itemPath>PQElement.cpp</itemPath>
-      <itemPath>PriorityQueue.cpp</itemPath>
+      <itemPath>PQ_Dijkstra.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
@@ -57,17 +57,17 @@
       </item>
       <item path="Edge.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="Element.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Element.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Node.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Node.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="PQElement.cpp" ex="false" tool="1" flavor2="0">
+      <item path="PQ_Dijkstra.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="PQElement.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="PriorityQueue.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="PriorityQueue.h" ex="false" tool="3" flavor2="0">
+      <item path="PQ_Dijkstra.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -100,17 +100,17 @@
       </item>
       <item path="Edge.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="Element.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Element.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Node.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Node.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="PQElement.cpp" ex="false" tool="1" flavor2="0">
+      <item path="PQ_Dijkstra.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="PQElement.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="PriorityQueue.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="PriorityQueue.h" ex="false" tool="3" flavor2="0">
+      <item path="PQ_Dijkstra.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>

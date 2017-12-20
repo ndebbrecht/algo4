@@ -38,33 +38,35 @@ int main(int argc, char** argv) {
             weiter = false;
         } else if(choice == 'z'){
             graph.printNodes();
+            char y;
+            scanf("%c",&y);
             weiter = true;
         } else {
-            cout << "Bitte Startort eingeben!\n>";
+            cout << choice << "Bitte Startort eingeben!\n>";
             char start[50];
             scanf("%50s", &start[0]);
+            fflush(stdin);
             string a = string(start);
             cout << "Bitte Zielort eingeben!\n>";
             char ziel[50];
             scanf("%50s", &ziel[0]);
+            fflush(stdin);
             string b = string(ziel);
             cout << "Über wie viele Knoten soll die Strecke maximal gehen?\n>";
             int n = 5;
             scanf("%d", &n);
-            cout << n;
+            fflush(stdin);
             int result = 0;
-            cout << "1";
             if(choice == 's'){
                 result = graph.findShortestWay(a, b, n);
             } else {
-                cout << start;
                 result = graph.dijkstra(a, b, n);    
             }
             if(result >= 0){
                 cout << "Die Strecke verläuft über " << result << " Knoten\n\n";
                 if(choice == 'd'){
                     Node* target = graph.findNode(b);
-                    cout << "Die Strecke von " << a << " nach " << b << " beträgt " << target->getDist() << "km\n";
+                    cout << "Die Strecke von " << a << " nach " << b << " beträgt " << target->getDist() << "km\n\n";
                 }
             } else {
                 switch(result){
@@ -79,7 +81,18 @@ int main(int argc, char** argv) {
                         break;
                 }
             }
-            weiter = true;
+            char y;
+            scanf("%c",&y);
+            cout << "Fortfahren? (y/n)\n>";
+            char x;
+            fflush(stdin);
+            scanf("%c",&x);
+            scanf("%c",&y);
+            if(x=='y'){
+                weiter=true;
+            } else {
+                weiter=false;
+            }
             
         }
     }

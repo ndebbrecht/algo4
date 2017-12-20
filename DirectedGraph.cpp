@@ -26,11 +26,11 @@ DirectedGraph::~DirectedGraph() {
 
 void DirectedGraph::insertEdge(string start, string target, float weight){
     if(findNode(start) == NULL){
-        Node* n = new Node(start, ++size);
+        Node* n = new Node(start, size);
         insertNode(n);
     }
     if(findNode(target) == NULL){
-        Node* n = new Node(target, ++size);
+        Node* n = new Node(target, size);
         insertNode(n);
     }
     insertEdge(new Edge(findNode(start), findNode(target), weight));
@@ -128,7 +128,7 @@ void DirectedGraph::printNodes(){
 }
 
 void DirectedGraph::single_shortest_path(Node* s){
-    PriorityQueue pq(this->size);
+    PQ_Dijkstra pq(this->size);
     map<Node*, vector<Edge*> >::iterator it;
     for(it = adjaz.begin(); it != adjaz.end(); it++){
         it->first->setMarked(false);
@@ -138,10 +138,10 @@ void DirectedGraph::single_shortest_path(Node* s){
         } else {
             it->first->setDist(numeric_limits<float>::max());
         }
-        pq.insert(*(it->first));
+        pq.insert(it->first);
     }
     Node* v = NULL;
-    while(pq.size()!=0){
+    while(!pq.empty()){
         v=pq.extractMin();
         v->setMarked(true);
         for(int i = 0; i<adjaz.find(v)->second.size();i++){
@@ -149,7 +149,7 @@ void DirectedGraph::single_shortest_path(Node* s){
             if((!vi->getSecond()->getMarked()) && (vi->getSecond()->getDist() > v->getDist() + vi->getWeight())){
                 vi->getSecond()->setDist(v->getDist() + vi->getWeight());
                 vi->getSecond()->setPrev(v);
-                pq.update(vi->getSecond()->getMarkierung(), vi->getSecond());
+                pq.update(vi->getSecond()->getIndex(), vi->getSecond()->getDist());
 
             }
         }
@@ -161,20 +161,19 @@ void DirectedGraph::single_shortest_path(Node* s){
 }
 
 int DirectedGraph::dijkstra(string st, string go, int c){
-    cout << st << go;
     Node* start = this->findNode(st);
     Node* target = this->findNode(go);
     if(start == NULL || target == NULL){
         return -2;
     } else {
-        cout << "1";
         this->single_shortest_path(start);
-        cout << "2";
         Node* tmp = target;
         int count = 0;
         while(tmp != start){
-            cout << "ping";
             count++;
+            if(tmp->getPrev()==NULL){
+                return -3;
+            }
             tmp = tmp->getPrev();
         }
         if(count <=c){

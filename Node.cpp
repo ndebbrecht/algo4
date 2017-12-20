@@ -27,6 +27,11 @@ Node::Node(string markierung, int index) {
 }
 
 Node::Node(){
+    this->markierung = "leer";
+    this->dist = 0;
+    this->index = 0;
+    this->marked = false;
+    this->prev = NULL;
 }
 
 Node::Node(const Node& orig) {

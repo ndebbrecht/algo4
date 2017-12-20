@@ -37,9 +37,9 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 OBJECTFILES= \
 	${OBJECTDIR}/DirectedGraph.o \
 	${OBJECTDIR}/Edge.o \
+	${OBJECTDIR}/Element.o \
 	${OBJECTDIR}/Node.o \
-	${OBJECTDIR}/PQElement.o \
-	${OBJECTDIR}/PriorityQueue.o \
+	${OBJECTDIR}/PQ_Dijkstra.o \
 	${OBJECTDIR}/main.o
 
 
@@ -77,20 +77,20 @@ ${OBJECTDIR}/Edge.o: Edge.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Edge.o Edge.cpp
 
+${OBJECTDIR}/Element.o: Element.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Element.o Element.cpp
+
 ${OBJECTDIR}/Node.o: Node.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Node.o Node.cpp
 
-${OBJECTDIR}/PQElement.o: PQElement.cpp
+${OBJECTDIR}/PQ_Dijkstra.o: PQ_Dijkstra.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/PQElement.o PQElement.cpp
-
-${OBJECTDIR}/PriorityQueue.o: PriorityQueue.cpp
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/PriorityQueue.o PriorityQueue.cpp
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/PQ_Dijkstra.o PQ_Dijkstra.cpp
 
 ${OBJECTDIR}/main.o: main.cpp
 	${MKDIR} -p ${OBJECTDIR}

@@ -22,7 +22,7 @@
 #include <fstream>
 #include <cstdio>
 #include <queue>
-#include "PriorityQueue.h"
+#include "PQ_Dijkstra.h"
 
 using namespace std;
 
