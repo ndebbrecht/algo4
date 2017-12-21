@@ -4,6 +4,13 @@
  * and open the template in the editor.
  */
 
+/* 
+ * File:   Element.cpp
+ * Author: niklas_debbrecht
+ * 
+ * Created on 6. Dezember 2017, 14:32
+ */
+
 #include "Element.h"
 #include <iostream>
 

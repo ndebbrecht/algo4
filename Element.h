@@ -1,8 +1,8 @@
-/*
+/* 
  * File:   Element.h
- * Author: tiseidel
- *
- * Created on 4. November 2016, 12:46
+ * Author: niklas_debbrecht
+ * 
+ * Created on 6. Dezember 2017, 14:32
  */
 
 #ifndef ELEMENT_H

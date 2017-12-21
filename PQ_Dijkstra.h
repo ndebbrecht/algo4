@@ -5,10 +5,10 @@
  */
 
 /* 
- * File:   PQ_Referenzfeld.h
- * Author: tiseidel
- *
- * Created on 17. November 2016, 20:43
+ * File:   PQ_Dijkstra.h
+ * Author: niklas_debbrecht
+ * 
+ * Created on 6. Dezember 2017, 14:32
  */
 
 #ifndef PQ_REFERENZFELD_H

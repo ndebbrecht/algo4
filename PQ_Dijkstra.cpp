@@ -4,6 +4,13 @@
  * and open the template in the editor.
  */
 
+/* 
+ * File:   PQ_Dijkstra.cpp
+ * Author: niklas_debbrecht
+ * 
+ * Created on 6. Dezember 2017, 14:32
+ */
+
 #include "PQ_Dijkstra.h"
 
 PQ_Dijkstra::PQ_Dijkstra(int ms)
